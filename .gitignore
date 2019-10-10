@@ -34,4 +34,5 @@ tmp/
 *~.nib
 local.properties
 .loadpath
-.WebContent/
+WebContent/
+target/
