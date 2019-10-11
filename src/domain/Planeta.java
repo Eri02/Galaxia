@@ -75,14 +75,6 @@ public class Planeta {
 	}
 		
 	//Getters
-	public double getPosX() {
-		 return this.posicionPlaneta.getX();
-	}
-
-	public double getPosY() {
-		return this.posicionPlaneta.getY();
-	}
-	
 	public String getNombrePlaneta(){
 		return this.nombrePlaneta;
 	}
