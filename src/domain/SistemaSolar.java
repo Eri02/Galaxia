@@ -70,6 +70,10 @@ public class SistemaSolar {
 	}
 	
 	public boolean estanAlineadosConElSol(Planeta p1, Planeta p2, Planeta p3,int dias) { //envia pos del sol
+		Point2D sol = new Point2D.Double(0,0);
+		double[] solPos = {0,0};
+		double solX = solPos[0];
+		double solY = solPos[1];
 		return this.estanAlineados(p1,p2,p3, dias) && this.independiente == 0;
 	}
 }
