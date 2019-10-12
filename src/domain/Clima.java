@@ -1,10 +1,36 @@
 package domain;
 
+import java.awt.geom.Point2D;
+import java.awt.geom.Point2D.Double;
+
 public class Clima {
-	/*
-	 * Cuando los 3 planetas est�n alineados con el sol, hay sequia
-	 * Cuando los 3 planetas forma un tri�ngulo con el sol en medio, hay lluvia
-	 * Hbar� pico intenso de lluvia cuando el per�metro del tri�ngulo est� en su m�ximo?
-	 * El clima ser� �ptimo cuando los tres planetas est�n alineados entre s�.
-	 * */
+
+	public SistemaSolar sistSolar = new SistemaSolar();
+	
+	public void calcularClimaPorDia(int dia) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public boolean hayLluvia(Planeta p1, Planeta p2, Planeta p3, Point2D sol,int dias){
+		//llueve si sus posiciones forman un triángulo, además, si el sol está contenido en él.
+		Point2D posP1 = p1.posicionPorDia(dias);
+		Point2D posP2 = p2.posicionPorDia(dias);
+		Point2D posP3 = p3.posicionPorDia(dias);
+		if(!sistSolar.estanAlineados(p1, p2, p3, dias)) {
+			return sistSolar.solPerteneceAlTriangulo(posP1, posP2, posP3,sol);
+		}
+		return sistSolar.formanUnTriangulo(posP1, posP2, posP3); ///////////////
+	}
+	
+	public boolean haySequia(Planeta p1, Planeta p2, Planeta p3, Point2D sol, int dias) {
+		return sistSolar.estanAlineadosConElSol(p1, p2, p3, sol, dias);
+	}
+	
+	public boolean esClimaOptimo(Planeta p1, Planeta p2, Planeta p3,int dias) {
+		return sistSolar.estanAlineados(p1, p2, p3, dias);
+	}
+	
+	
+	
 }

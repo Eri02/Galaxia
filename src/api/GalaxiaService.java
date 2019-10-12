@@ -60,12 +60,15 @@ public class GalaxiaService {
 		return Response.ok(planeta1.posicionPorDia(dias)).build();
 	}
 	
+	
 	@Path("{anios}")
 	@GET
 	public Response getClimaPorAnios(@PathParam("anios") int anios) {
 		int diasEnTotal = anios * 365;
 		for (int dia = 0; dia <= diasEnTotal; dia++) {
 			clima.calcularClimaPorDia(dia);
-		}		
+		}	
+		
+		return Response.ok().build();
 	}
 }
