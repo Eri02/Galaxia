@@ -33,6 +33,15 @@ public class SistemaSolar {
 		return true;
 		//return this.formanUnTriangulo(posP1, posP2, posP3);
 	}
+	
+	public boolean haySequia(Planeta p1, Planeta p2, Planeta p3,int dias) {
+		return this.estanAlineadosConElSol(p1, p2, p3, dias);
+	}
+	
+	public boolean esClimaOptimo(Planeta p1, Planeta p2, Planeta p3,int dias) {
+		return this.estanAlineados(p1, p2, p3, dias);
+	}
+	
 
 	public boolean solPerteneceAlTriangulo(Point2D p1, Point2D p2, Point2D p3, Point2D sol) {
 		double l1 = this.distanciaEntreDosPuntos(p1, p2);
@@ -53,7 +62,7 @@ public class SistemaSolar {
 	
 	//Fórmula de Herón
 	public double areaDeTriangulo(double a, double b, double c) {
-		double s = (a + b + c)/2;
+		double s = (this.perimetro(a, b, c))/2;
 		double area = Math.sqrt(s*(s-a)*(s-b)*(s-c));
 		return area;
 	}
@@ -66,10 +75,10 @@ public class SistemaSolar {
 		return (a >=1 && b >= 1 && c >= 1); //revisar
 	}
 
-	public double perimetro(Point2D p1, Point2D p2, Point2D p3) {
-		double a = this.distanciaEntreDosPuntos(p1, p2);
+	public double perimetro(double a, double b, double c) {
+		/*double a = this.distanciaEntreDosPuntos(p1, p2);
 		double b = this.distanciaEntreDosPuntos(p2, p3);
-		double c = this.distanciaEntreDosPuntos(p3, p1);
+		double c = this.distanciaEntreDosPuntos(p3, p1);*/
 		return a + b + c;
 	}
 	
@@ -83,14 +92,6 @@ public class SistemaSolar {
 		return d;
 	}
 
-	public boolean haySequia(Planeta p1, Planeta p2, Planeta p3,int dias) {
-		return this.estanAlineadosConElSol(p1, p2, p3, dias);
-	}
-	
-	public boolean esClimaOptimo(Planeta p1, Planeta p2, Planeta p3,int dias) {
-		return this.estanAlineados(p1, p2, p3, dias);
-	}
-	
 	
 	public boolean estanAlineados(Planeta p1, Planeta p2, Planeta p3,int dias) {
 		Point2D posP1 = p1.posicionPorDia(dias);
@@ -102,7 +103,7 @@ public class SistemaSolar {
 		
 		double pendiente = elevacion/avance;
 		
-		this.independiente = posP1.getY() - (pendiente * posP1.getX()); //cambiar this.ind
+		double independiente = posP1.getY() - (pendiente * posP1.getX()); //cambiar this.ind
 		
 		//ec pendiente queda: Y = pendiente*x + independiente		
 		double pendiente3 = posP3.getX() - posP2.getX() /  posP3.getY() - posP2.getY();

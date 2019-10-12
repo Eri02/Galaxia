@@ -31,7 +31,7 @@ public class Planeta {
  * */
 	private int id;
 	private String nombrePlaneta;
-	private int velocidadAngular; //ser� positiva o negativa, dependiendo del sentido que tenga
+	private int velocidadAngular; //positiva o negativa, dependiendo del sentido que tenga
 	private double radio;
 	private long angulo;
 	private double anguloRadian;
@@ -43,7 +43,7 @@ public class Planeta {
 	this.nombrePlaneta = nombre;
 	this.velocidadAngular = velocidad;
 	this.radio = radio;
-	this.posicionPlaneta = new Double(radio, 0.0); // la posici�n inicial del planeta?
+	//this.posicionPlaneta = new Double(radio, 0.0); // la posici�n inicial del planeta?
 	this.sentido = sentido;
 	}
 	
@@ -82,24 +82,12 @@ public class Planeta {
 	public int getVelocidadAngular() {
 		return this.velocidadAngular;
 	}
-	
-	public long getAngulo() {
-		return this.angulo;
-	}
-	
-	public double getAnguloRadian() {
-		return this.anguloRadian;
-	}
-
-	public Point2D getPosicionPlaneta() {
-		return this.posicionPlaneta;
-	}
-	
+		
 	public int getSentido() {
 		return this.sentido;
 	}
-	//setter
 	
+	//setter	
 	public void setId(int id) {
 		this.id = id;
 	}
