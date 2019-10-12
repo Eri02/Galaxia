@@ -16,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import domain.Clima;
 import domain.Planeta;
 
 @Path("/planetas")
@@ -38,6 +39,7 @@ import domain.Planeta;
 
 public class GalaxiaService {
 
+	public Clima clima;
 	private static final List<Planeta> planetas = new ArrayList<>();
 	static {
 		planetas.add(new Planeta("Ferengi", 1,500,-1));
@@ -56,5 +58,14 @@ public class GalaxiaService {
 		Planeta planeta1 = new Planeta("FerengiCopy", 1,500,-1);
 		System.out.println("El paneta está en la posición " + planeta1.posicionPorDia(dias) + "a los " + dias + "día(s)");
 		return Response.ok(planeta1.posicionPorDia(dias)).build();
+	}
+	
+	@Path("{anios}")
+	@GET
+	public Response getClimaPorAnios(@PathParam("anios") int anios) {
+		int diasEnTotal = anios * 365;
+		for (int dia = 0; dia <= diasEnTotal; dia++) {
+			clima.calcularClimaPorDia(dia);
+		}		
 	}
 }

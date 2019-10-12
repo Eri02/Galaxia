@@ -5,6 +5,8 @@ import java.awt.geom.Point2D.Double;
 
 public class SistemaSolar {
 	
+	static final Point2D POS_SOL = new Double(0, 0); 
+	
 	public void getClimaPorDia() {
 		
 	}
@@ -28,10 +30,9 @@ public class SistemaSolar {
 		Point2D posP3 = p3.posicionPorDia(dias);
 		Point2D sol = new Double(0, 0); 
 		if(this.formanUnTriangulo(posP1, posP2, posP3)) {
-			this.solPerteneceAlTriangulo(posP1, posP2, posP3,sol);
+			return this.solPerteneceAlTriangulo(posP1, posP2, posP3,sol);
 		}
-		return true;
-		//return this.formanUnTriangulo(posP1, posP2, posP3);
+		return this.formanUnTriangulo(posP1, posP2, posP3); ///////////////
 	}
 	
 	public boolean haySequia(Planeta p1, Planeta p2, Planeta p3,int dias) {
@@ -42,7 +43,6 @@ public class SistemaSolar {
 		return this.estanAlineados(p1, p2, p3, dias);
 	}
 	
-
 	public boolean solPerteneceAlTriangulo(Point2D p1, Point2D p2, Point2D p3, Point2D sol) {
 		double l1 = this.distanciaEntreDosPuntos(p1, p2);
 		double l2 = this.distanciaEntreDosPuntos(p2, p3);
@@ -76,9 +76,6 @@ public class SistemaSolar {
 	}
 
 	public double perimetro(double a, double b, double c) {
-		/*double a = this.distanciaEntreDosPuntos(p1, p2);
-		double b = this.distanciaEntreDosPuntos(p2, p3);
-		double c = this.distanciaEntreDosPuntos(p3, p1);*/
 		return a + b + c;
 	}
 	
