@@ -1,6 +1,7 @@
 package domain;
 
 import java.awt.geom.Point2D;
+import java.awt.geom.Point2D.Double;
 
 public class SistemaSolar {
 	
@@ -26,15 +27,21 @@ public class SistemaSolar {
 		
 	}
 	
-	public boolean formanUnTriangulo(Planeta p1, Planeta p2, Planeta p3,int dias){
+	public boolean hayLluvia(Planeta p1, Planeta p2, Planeta p3,int dias){
 		Point2D posP1 = p1.posicionPorDia(dias);
 		Point2D posP2 = p2.posicionPorDia(dias);
 		Point2D posP3 = p3.posicionPorDia(dias);
+		
+		return this.formanUnTriangulo(posP1, posP2, posP3);
+	}
+
+	public boolean formanUnTriangulo(Point2D p1, Point2D p2, Point2D p3){
+
 		double a = this.distanciaEntreDosPuntos(p1, p2);
 		double b = this.distanciaEntreDosPuntos(p2, p3);
 		double c = this.distanciaEntreDosPuntos(p3, p1);
 
-		
+		return (a >=1 && b >= 1 && c >= 1) ;
 	}
 
 	public double perimetro(Point2D p1, Point2D p2, Point2D p3) {
@@ -58,7 +65,7 @@ public class SistemaSolar {
 		return this.estanAlineadosConElSol(p1, p2, p3, dias);
 	}
 	
-	public boolean esClimaOptimo() {
+	public boolean esClimaOptimo(Planeta p1, Planeta p2, Planeta p3,int dias) {
 		return this.estanAlineados(p1, p2, p3, dias);
 	}
 	
@@ -82,7 +89,7 @@ public class SistemaSolar {
 	}
 	
 	public boolean estanAlineadosConElSol(Planeta p1, Planeta p2, Planeta p3,int dias) { //envia pos del sol
-		Point2D sol = new Double(0.0,0.0); 
+		Point2D sol = new Double(0, 0); 
 		double solX = sol.getX();
 		double solY = sol.getY();
 		Point2D posP1 = p1.posicionPorDia(dias);
