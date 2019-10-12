@@ -28,11 +28,21 @@ public class SistemaSolar {
 	}
 	
 	public boolean hayLluvia(Planeta p1, Planeta p2, Planeta p3,int dias){
+		//llueve si sus posiciones forman un triángulo, además, si el sol está contenido en él.
 		Point2D posP1 = p1.posicionPorDia(dias);
 		Point2D posP2 = p2.posicionPorDia(dias);
 		Point2D posP3 = p3.posicionPorDia(dias);
+		Point2D sol = new Double(0, 0); 
+		if(this.formanUnTriangulo(posP1, posP2, posP3)) {
+			this.solPerteneceAlTriangulo(posP1, posP2, posP3,sol);
+		}
+		return true;
+		//return this.formanUnTriangulo(posP1, posP2, posP3);
+	}
+
+	private void solPerteneceAlTriangulo(Point2D posP1, Point2D posP2, Point2D posP3, Point2D sol) {
+		// TODO Auto-generated method stub
 		
-		return this.formanUnTriangulo(posP1, posP2, posP3);
 	}
 
 	public boolean formanUnTriangulo(Point2D p1, Point2D p2, Point2D p3){
@@ -41,7 +51,7 @@ public class SistemaSolar {
 		double b = this.distanciaEntreDosPuntos(p2, p3);
 		double c = this.distanciaEntreDosPuntos(p3, p1);
 
-		return (a >=1 && b >= 1 && c >= 1) ;
+		return (a >=1 && b >= 1 && c >= 1);
 	}
 
 	public double perimetro(Point2D p1, Point2D p2, Point2D p3) {
