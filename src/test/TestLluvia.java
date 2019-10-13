@@ -17,15 +17,6 @@ class TestLluvia {
 	Point2D sol = new Double(0, 0);
 	
 	Lluvia lluvia = new Lluvia();
-	
-	
-	//public boolean hayLluvia(Point2D  p1, Point2D p2, Point2D p3, Point2D sol) {
-
-	//public boolean solPerteneceAlTriangulo(Point2D p1, Point2D p2, Point2D p3, Point2D sol) {
-
-	//public double areaDeTriangulo(double a, double b, double c) {
-
-	//public boolean formanUnTriangulo(Point2D p1, Point2D p2, Point2D p3){
 
 	@Test
 	void testLlueve() {

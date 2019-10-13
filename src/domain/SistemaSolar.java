@@ -8,6 +8,7 @@ import java.util.List;
 public class SistemaSolar {
 
 	static final Point2D POS_SOL = new Double(0, 0); 
+	List<InfoClima> climas = new ArrayList<InfoClima>();
 	
 	/*Planeta planeta1 =  new Planeta("Ferengi", 1,500,-1);
 	Planeta planeta2 =  new Planeta("Betasoide", 3,2000, -1);
