@@ -1,36 +1,33 @@
 package domain;
 
 import java.awt.geom.Point2D;
-import java.awt.geom.Point2D.Double;
 
 public class Clima {
 
-	public SistemaSolar sistSolar = new SistemaSolar();
+	private String nombreClima;
+	private int dia;
 	
-	public void calcularClimaPorDia(int dia) {
-		// TODO Auto-generated method stub
+	public SistemaSolar sistSolar;
+	
+/*	public InfoClima getInfoClima(Point2D p1, Point2D p2, Point2D p3, Point2D sol) {
 		
+		InfoClima info = new InfoClima();
+		return info;
 	}
 	
-	public boolean hayLluvia(Planeta p1, Planeta p2, Planeta p3, Point2D sol,int dias){
-		//llueve si sus posiciones forman un triángulo, además, si el sol está contenido en él.
-		Point2D posP1 = p1.posicionPorDia(dias);
-		Point2D posP2 = p2.posicionPorDia(dias);
-		Point2D posP3 = p3.posicionPorDia(dias);
-		if(!sistSolar.estanAlineados(p1, p2, p3, dias)) {
-			return sistSolar.solPerteneceAlTriangulo(posP1, posP2, posP3,sol);
-		}
-		return sistSolar.formanUnTriangulo(posP1, posP2, posP3); ///////////////
+	*/
+	
+	public boolean estanAlineados(Point2D posP1, Point2D posP2, Point2D posP3,int dia) {
+		double elevacion = posP2.getX() - posP1.getX();
+		double avance = posP2.getY() - posP1.getY();
+		
+		double pendiente = elevacion/avance;
+		
+		double independiente = posP1.getY() - (pendiente * posP1.getX()); //cambiar this.ind
+		
+		//ec pendiente queda: Y = pendiente*x + independiente		
+		double pendiente3 = posP3.getX() - posP2.getX() /  posP3.getY() - posP2.getY();
+		
+		return (pendiente == pendiente3);
 	}
-	
-	public boolean haySequia(Planeta p1, Planeta p2, Planeta p3, Point2D sol, int dias) {
-		return sistSolar.estanAlineadosConElSol(p1, p2, p3, sol, dias);
-	}
-	
-	public boolean esClimaOptimo(Planeta p1, Planeta p2, Planeta p3,int dias) {
-		return sistSolar.estanAlineados(p1, p2, p3, dias);
-	}
-	
-	
-	
 }

@@ -5,12 +5,12 @@ public enum SentidoEnum {
 	ANTIHORARIO(1);
 	
 	private int sentido;
-
-	SentidoEnum(int valor) {
+	
+	private SentidoEnum(int valor) {
 		this.sentido = valor;
 	}
 	
-	int getSentido() {
+	public int getSentido() {
 		return this.sentido;
 	}
 }

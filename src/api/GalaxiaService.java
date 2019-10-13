@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import domain.Clima;
+import domain.InfoClima;
 import domain.Planeta;
 
 @Path("/planetas")
@@ -39,7 +39,7 @@ import domain.Planeta;
 
 public class GalaxiaService {
 
-	public Clima clima;
+	public InfoClima clima;
 	private static final List<Planeta> planetas = new ArrayList<>();
 	static {
 		planetas.add(new Planeta("Ferengi", 1,500,-1));
