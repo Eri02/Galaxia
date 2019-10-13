@@ -57,13 +57,13 @@ public class Planeta {
 			this.angulo = 360 + angulo;
 		}
 		this.angulo = angulo;
-		System.out.println("Angulo por día: " + this.angulo);
+		//System.out.println("Angulo por día: " + this.angulo);
 		return this.angulo;
 	}
 		
 	public double calculoAnguloRadian(long angulo) {
 		double anguloRadian = Math.toRadians(angulo);
-		System.out.println(" Angulo en radianes(round) día: " + Math.round(anguloRadian));
+		//System.out.println(" Angulo en radianes(round) día: " + Math.round(anguloRadian));
 		return anguloRadian;
 		
 	}
@@ -73,10 +73,10 @@ public class Planeta {
 		double radianes = this.calculoAnguloRadian(angulo);
 		double posX = this.radio *  Math.cos(radianes);
 		double posY = this.radio *  Math.sin(radianes);
-		System.out.println("Pos X: " + Math.round(posX));
-		System.out.println("Pos Y: " + Math.round(posY));
+		//System.out.println("Pos X: " + Math.round(posX));
+		//System.out.println("Pos Y: " + Math.round(posY));
 		this.posicionPlaneta.setLocation(Math.round(posX), Math.round(posY));
-		System.out.println("Posición planeta: " + this.posicionPlaneta);
+		//System.out.println("Posición planeta: " + this.posicionPlaneta);
 		 return this.posicionPlaneta;
 	}
 		

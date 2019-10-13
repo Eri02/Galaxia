@@ -76,10 +76,12 @@ public class GalaxiaService {
 		for (int dia = 0; dia <= diasEnTotal; dia++) {
 			InfoClima info = new InfoClima();
 			info = sistSolar.getClimaPorDia(dia);
-			climas.add(info);
+			if(info.toString() != null ||info.toString() != ""){
+				climas.add(info);
+			}
 		}	
 		
-			System.out.println("Clima: " + climas);
+		//System.out.println("Clima: " + climas);
 		return Response.ok(climas, MediaType.APPLICATION_JSON).build();
 	}
 }
