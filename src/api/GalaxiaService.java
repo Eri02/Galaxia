@@ -2,6 +2,8 @@ package api;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.websocket.server.PathParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -19,33 +21,12 @@ import domain.SistemaSolar;
 @Produces(value = MediaType.APPLICATION_JSON)
 public class GalaxiaService {
 
-	private static final List<Planeta> planetas = new ArrayList<>();
-	static {
-		planetas.add(new Planeta("Ferengi", 1,500,-1));
-		planetas.add(new Planeta("Betasoide", 3,2000, -1));
-		planetas.add(new Planeta("Vulcano", 5,1000, 1));
-	}
-
 	Planeta planeta1 =  new Planeta("Ferengi", 1,500,-1);
 	Planeta planeta2 =  new Planeta("Betasoide", 3,2000, -1);
 	Planeta planeta3 =  new Planeta("Vulcano", 5,1000, 1);
 	
 	SistemaSolar sistSolar = new SistemaSolar(planeta1, planeta2, planeta3);
-	
-	@GET
-	public Response getAllPlanetas() {
-		return Response.ok(this.planetas, MediaType.APPLICATION_JSON).build();
-	}
-	
-	/*@Path("{dias}")
-	@GET 
-	public Response getPosicionDePlanetasPorDias(@PathParam("dias") int dias) {
-		Planeta planeta1 = new Planeta("FerengiCopy", 1,500,-1);
-		System.out.println("El paneta está en la posición " + planeta1.posicionPorDia(dias) + "a los " + dias + "día(s)");
-		return Response.ok(planeta1.posicionPorDia(dias)).build();
-	}
-	*/
-	
+
 	@Path("/clima")
 	@GET
 	public Response getClimaPorAnios() {
@@ -60,6 +41,14 @@ public class GalaxiaService {
 		List<InfoPeriodo> periodos = new ArrayList<InfoPeriodo>();
 		periodos = sistSolar.getPeriodosClima();
 		return Response.ok(periodos, MediaType.APPLICATION_JSON).build();
+	}
+	
+	@Path("/clima/{dia}")
+	@GET
+	public Response getClimaPorDia(@PathParam("dia") int day) {
+		InfoClima clima = new InfoClima();
+		clima = sistSolar.getClimaPorDia(day);
+		return Response.ok(clima, MediaType.APPLICATION_JSON).build();
 	}
 	
 }

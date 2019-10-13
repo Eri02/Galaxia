@@ -1,7 +1,7 @@
 package Enum;
 
 public enum ClimaEnum {
-	SEQUIA ("sequia"), 
+	SEQUIA ("Sequia"), 
 	LLUVIA ("Llueve"), 
 	OPTIMO ("Optimo");
 	

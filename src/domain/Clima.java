@@ -6,29 +6,21 @@ public class Clima {
 
 	public SistemaSolar sistSolar;
 	
-/*	public InfoClima getInfoClima(Point2D p1, Point2D p2, Point2D p3, Point2D sol) {
-		
-		InfoClima info = new InfoClima();
-		return info;
-	}
-	
-	*/
 	public Clima() {
 		
 	}
 	
 	public boolean estanAlineados(Point2D posP1, Point2D posP2, Point2D posP3) {
+		//alineados en pendiente
 		double elevacion = posP2.getX() - posP1.getX();
-		double avance = posP2.getY() - posP1.getY();
+		double avance = posP2.getY() - posP1.getY();		
+		double pendiente = elevacion/avance;				
+		//double independiente = posP1.getY() - (pendiente * posP1.getX()); 		
+		//ec pendiente queda: Y = pendiente*x + independiente	
 		
-		double pendiente = elevacion/avance;
-		
-		double independiente = posP1.getY() - (pendiente * posP1.getX()); //???
-		
-		//ec pendiente queda: Y = pendiente*x + independiente		
 		double pendiente3 = (posP3.getX() - posP2.getX()) /  (posP3.getY() - posP2.getY());
-		//System.out.print("Pendiente: " + pendiente + " " + "pendiente3: " + pendiente3);
-		
+
+		//alineados por alguna coordenada igual 
 		boolean linea = (((posP1.getX() == posP2.getX()) && (posP1.getX() == posP3.getX())) ||
 				((posP1.getY() == posP2.getY()) && (posP1.getY() == posP3.getY()))) ;
 		
