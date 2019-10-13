@@ -68,16 +68,18 @@ public class GalaxiaService {
 	}
 	*/
 	
-	@Path("{dia}")
+	@Path("/clima")
 	@GET
-	public Response getClimaPorAnios(@PathParam("dia") int dia) {
-		//int diasEnTotal = anios * 365;
-		//for (int dia = 0; dia <= diasEnTotal; dia++) {
-			//InfoClima info = new InfoClima();
-			boolean info = sistSolar.getClimaPorDia(dia);			
-		//}	
+	public Response getClimaPorAnios() {
+		int diasEnTotal = 10 * 365;
+		List<InfoClima> climas = new ArrayList<InfoClima>();
+		for (int dia = 0; dia <= diasEnTotal; dia++) {
+			InfoClima info = new InfoClima();
+			info = sistSolar.getClimaPorDia(dia);
+			climas.add(info);
+		}	
 		
-			System.out.println("Clima: " + info);
-		return Response.ok(info, MediaType.APPLICATION_JSON).build();
+			System.out.println("Clima: " + climas);
+		return Response.ok(climas, MediaType.APPLICATION_JSON).build();
 	}
 }
