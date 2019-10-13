@@ -1,7 +1,5 @@
 package domain;
 
-import java.awt.geom.Point2D;
-
 public class InfoClima {
 
 	private String clima;

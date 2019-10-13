@@ -3,32 +3,7 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Point2D.Double;
 
 public class Planeta {
-/*
- * public static void main(String args[]){
- * 
- * }
- * velocidad angular
- * radio al sol
- * para saber la posicion necesito radio, x e y
- * MCU
- * pos = xi + yj =Radio.cos(angulo)i + Radio.sin(angulo)j
- * 
- * Para saber si est�n alineados, tengo que ver si est�n en una pendiente
- * 
- * Ferengi:
- * velocidadAngular = 1 grado/dia en sentido horario(-)
- * radio = 500 Km
- * 
- * Betasoide:
- * velocidadAngular = 3 grados/dia en sentido horario (-)
- * radio = 2000 km
- * 
- * Vulcano:
- * velocidadAngular = 5grados/dia en sentido antihorario (+)
- * radio = 1000 km
- * 
- * anguloDegree = (velocidad * dias) / 360
- * */
+
 	private String nombrePlaneta;
 	private int velocidadAngular; //positiva o negativa, dependiendo del sentido que tenga
 	private double radio;
@@ -41,7 +16,6 @@ public class Planeta {
 	this.nombrePlaneta = nombre;
 	this.velocidadAngular = velocidad;
 	this.radio = radio;
-	//this.posicionPlaneta = new Double(radio, 0.0); // la posici�n inicial del planeta?
 	this.sentido = sentido;
 	}
 	
@@ -93,7 +67,6 @@ public class Planeta {
 		return this.sentido;
 	}
 	
-	//setter	
 
 	public void setNombre(String nombre) {
 		this.nombrePlaneta = nombre;

@@ -18,7 +18,6 @@ public class SistemaSolar {
 	private Planeta planeta2 = new Planeta();
 	private Planeta planeta3 = new Planeta();
 	
-	
 	public Lluvia lluvia = new Lluvia();
 	public Optimo optimo = new Optimo();
 	public Sequia sequia = new Sequia();
@@ -34,7 +33,6 @@ public class SistemaSolar {
 }
 
 	public InfoClima getClimaPorDia(int dia) { 
-		String info = "Desc";
 		Point2D posP1 = planeta1.posicionPorDia(dia);
 		Point2D posP2 = planeta2.posicionPorDia(dia);
 		Point2D posP3 = planeta3.posicionPorDia(dia);
@@ -58,10 +56,22 @@ public class SistemaSolar {
 			return infoSequia;
 		}
 		
-		//System.out.print("dia: " + info);
 		InfoClima sinInfo = new InfoClima();
 		System.out.print("Sin info: " + sinInfo);
 		return  sinInfo;	
+	}
+	
+	public List<InfoClima> getPrecionClima(){	
+		int diasEnTotal = 10 * 365;
+		List<InfoClima> climas = new ArrayList<InfoClima>();
+		for (int dia = 0; dia <= diasEnTotal; dia++) {
+			InfoClima info = new InfoClima();
+			info = this.getClimaPorDia(dia);
+			if(info.getClima() != "" && info.getDia() != 0){
+				climas.add(info);
+			}
+		}
+		return climas;
 	}
 	
 	

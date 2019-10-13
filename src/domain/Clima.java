@@ -4,9 +4,6 @@ import java.awt.geom.Point2D;
 
 public class Clima {
 
-	private String nombreClima;
-	private int dia;
-	
 	public SistemaSolar sistSolar;
 	
 /*	public InfoClima getInfoClima(Point2D p1, Point2D p2, Point2D p3, Point2D sol) {
@@ -45,9 +42,6 @@ public class Clima {
 		double x2 = p2.getX();
 		double y2 = p2.getY();
 		double distancia = Point2D.distance(x1, y1, x2, y2);
-		/*double x = Math.abs(p2.getX() - p1.getX());
-		double y = Math.abs(p2.getY() - p1.getY());
-		double d = Math.sqrt((Math.pow(x, 2) + (Math.pow(y, 2))));		*/
 		return distancia;
 	}
 	
