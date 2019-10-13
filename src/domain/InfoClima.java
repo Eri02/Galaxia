@@ -29,7 +29,5 @@ public class InfoClima {
 	public int getDia() {
 		return this.dia;
 	}
-	
-	
-	
+		
 }

@@ -5,10 +5,14 @@ import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;
 import java.util.List;
 
+import Enum.ClimaEnum;
+
 public class SistemaSolar {
 
 	static final Point2D POS_SOL = new Double(0, 0); 
 	List<InfoClima> climas = new ArrayList<InfoClima>();
+	
+	//String nombre = ClimaEnum.LLUVIA.getTipo();
 	
 	/*Planeta planeta1 =  new Planeta("Ferengi", 1,500,-1);
 	Planeta planeta2 =  new Planeta("Betasoide", 3,2000, -1);
@@ -61,7 +65,7 @@ public class SistemaSolar {
 		return  sinInfo;	
 	}
 	
-	public List<InfoClima> getPrecionClima(){	
+	public List<InfoClima> getPrediccionClima(){	
 		int diasEnTotal = 10 * 365;
 		List<InfoClima> climas = new ArrayList<InfoClima>();
 		for (int dia = 0; dia <= diasEnTotal; dia++) {
@@ -75,20 +79,40 @@ public class SistemaSolar {
 	}
 	
 	
-	public void getPeriodosOptimos(int dia) {
-		//clima.esClimaOptimo(planeta1, planeta2, planeta3, dia);
-	}
-	
-	public void getPeriodosLluviosos(int dia) {
-		//clima.hayLluvia(planeta1, planeta2, planeta3, POS_SOL, dia);
-	}
-	
-	public void getPeriodosDeSequia(int dia) {
-		//clima.haySequia(planeta1, planeta2, planeta3, POS_SOL, dia);
-	}
-	
-	public void picoMaximoDeLluvia() {
+	public List<InfoPeriodo> getPeriodosClima() {
+		List<InfoClima> climas = new ArrayList<InfoClima>();
+		climas = this.getPrediccionClima();
+		int countLluvia = 0;
+		int countSequia = 0;
+		int countOptimo = 0;
 		
+		for (InfoClima infoClima : climas) {
+			switch (infoClima.getClima()) {
+				case "Llueve":
+					countLluvia++;
+					break;
+				case "Sequia":
+					countSequia++;
+					break;
+				case "Optimo":
+					countOptimo++;
+					break;
+				default:
+					break;
+			}
+		}
+		
+		InfoPeriodo periodoLluvia = new InfoPeriodo(ClimaEnum.LLUVIA.getTipo(), countLluvia);
+		InfoPeriodo periodoSequia = new InfoPeriodo(ClimaEnum.SEQUIA.getTipo(), countSequia);
+		InfoPeriodo periodoOptimo = new InfoPeriodo(ClimaEnum.OPTIMO.getTipo(), countOptimo);
+		
+		List<InfoPeriodo> periodos = new ArrayList<InfoPeriodo>();
+		
+		periodos.add(periodoLluvia);
+		periodos.add(periodoSequia);
+		periodos.add(periodoOptimo);
+
+		return periodos;
 	}
 		
 

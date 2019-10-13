@@ -10,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import domain.InfoClima;
+import domain.InfoPeriodo;
 import domain.Planeta;
 import domain.SistemaSolar;
 
@@ -49,15 +50,16 @@ public class GalaxiaService {
 	@GET
 	public Response getClimaPorAnios() {
 		List<InfoClima> climas = new ArrayList<InfoClima>();
-		climas = sistSolar.getPrecionClima();		
+		climas = sistSolar.getPrediccionClima();		
 		return Response.ok(climas, MediaType.APPLICATION_JSON).build();
 	}
 	
 	@Path("/periodos")
 	@GET
 	public Response getPeriodos() {
-		
-		return Response.ok().build();
+		List<InfoPeriodo> periodos = new ArrayList<InfoPeriodo>();
+		periodos = sistSolar.getPeriodosClima();
+		return Response.ok(periodos, MediaType.APPLICATION_JSON).build();
 	}
 	
 }
