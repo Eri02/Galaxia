@@ -8,7 +8,7 @@ public class Lluvia extends Clima{
 		super();
 	}
 	
-	public boolean hayLluvia(Point2D p1, Point2D p2, Point2D p3, Point2D sol) {
+	public boolean hayLluvia(Point2D  p1, Point2D p2, Point2D p3, Point2D sol) {
 		return solPerteneceAlTriangulo(p1, p2, p3, sol);
 	}
 	

@@ -18,9 +18,9 @@ public class SistemaSolar {
 	private Planeta planeta3;
 	
 	
-	public Lluvia lluvia;
-	public Optimo optimo;
-	public Sequia sequia;
+	public Lluvia lluvia = new Lluvia();
+	public Optimo optimo = new Optimo();
+	public Sequia sequia = new Sequia();
 		
 public SistemaSolar(Planeta p1, Planeta p2, Planeta p3) {
 	this.planeta1 = p1;
@@ -28,9 +28,13 @@ public SistemaSolar(Planeta p1, Planeta p2, Planeta p3) {
 	this.planeta3 = p3;
 }
 	
+	public SistemaSolar() {
+	// TODO Auto-generated constructor stub
+}
+
 	public String getClimaPorDia(int dia) { //InfoClima
 		//InfoClima info = new InfoClima();
-		String info = "";
+		String info = "Desc";
 		Point2D posP1 = planeta1.posicionPorDia(dia);
 		Point2D posP2 = planeta2.posicionPorDia(dia);
 		Point2D posP3 = planeta3.posicionPorDia(dia);
@@ -39,6 +43,7 @@ public SistemaSolar(Planeta p1, Planeta p2, Planeta p3) {
 			//info.setTipoClima("Llueve");
 			//info.setDia(dia);
 			info = "Lluvia";
+			
 		} 
 		
 		if(optimo.esOptimo(posP1, posP2, posP3))
@@ -53,7 +58,7 @@ public SistemaSolar(Planeta p1, Planeta p2, Planeta p3) {
 			//info.setDia(dia);
 			info = "Sequia";
 		}
-		
+		System.out.print("dia: " + info);
 		return info;
 		
 	}

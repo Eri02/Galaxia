@@ -70,7 +70,8 @@ public class Planeta {
 		double radianes = this.calculoAnguloRadian(angulo);
 		double posX = this.radio *  Math.cos(radianes);
 		double posY = this.radio *  Math.sin(radianes);
-		return this.posicionPlaneta = new Double(posX, posY);
+		this.posicionPlaneta.setLocation(posX, posY);
+		 return this.posicionPlaneta;
 	}
 		
 	//Getters
