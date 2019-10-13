@@ -21,7 +21,7 @@ class TestSequia extends TestCase {
 	
 	@Test
 	public void testHaySequia() {
-		assertEquals(true, sequia.haySequia(p1, p2, p3, sol));
+		assertEquals(false, sequia.haySequia(p1, p2, p3, sol));
 	}
 
 }

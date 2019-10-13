@@ -9,7 +9,10 @@ public class Lluvia extends Clima{
 	}
 	
 	public boolean hayLluvia(Point2D  p1, Point2D p2, Point2D p3, Point2D sol) {
-		return solPerteneceAlTriangulo(p1, p2, p3, sol);
+		if(formanUnTriangulo(p1, p2, p3)) {
+			return solPerteneceAlTriangulo(p1, p2, p3, sol);
+		}
+		return false;
 	}
 	
 	public boolean solPerteneceAlTriangulo(Point2D p1, Point2D p2, Point2D p3, Point2D sol) {
@@ -31,17 +34,13 @@ public class Lluvia extends Clima{
 	
 	//Fórmula de Herón
 	public double areaDeTriangulo(double a, double b, double c) {
-		double s = (this.perimetro(a, b, c))/2; //revisar perimetro
+		double s = (this.perimetro(a, b, c))/2; 
 		double area = Math.sqrt(s*(s-a)*(s-b)*(s-c));
 		return area;
 	}
 
 	public boolean formanUnTriangulo(Point2D p1, Point2D p2, Point2D p3){
-		double a = this.distanciaEntreDosPuntos(p1, p2);
-		double b = this.distanciaEntreDosPuntos(p2, p3);
-		double c = this.distanciaEntreDosPuntos(p3, p1);
-
-		return (a >=1 && b >= 1 && c >= 1); //revisar
+		return ((p1 != p2) && (p2 != p3) && (p1 != p3)); 
 	}
 	
 	

@@ -13,9 +13,9 @@ public class SistemaSolar {
 	Planeta planeta2 =  new Planeta("Betasoide", 3,2000, -1);
 	Planeta planeta3 =  new Planeta("Vulcano", 5,1000, 1);*/
 	
-	private Planeta planeta1;
-	private Planeta planeta2;
-	private Planeta planeta3;
+	private Planeta planeta1 = new Planeta();
+	private Planeta planeta2 = new Planeta();
+	private Planeta planeta3 = new Planeta();
 	
 	
 	public Lluvia lluvia = new Lluvia();
@@ -32,7 +32,7 @@ public SistemaSolar(Planeta p1, Planeta p2, Planeta p3) {
 	// TODO Auto-generated constructor stub
 }
 
-	public String getClimaPorDia(int dia) { //InfoClima
+	public boolean getClimaPorDia(int dia) { //InfoClima
 		//InfoClima info = new InfoClima();
 		String info = "Desc";
 		Point2D posP1 = planeta1.posicionPorDia(dia);
@@ -42,24 +42,30 @@ public SistemaSolar(Planeta p1, Planeta p2, Planeta p3) {
 		if(lluvia.hayLluvia(posP1, posP2, posP3, POS_SOL)) {
 			//info.setTipoClima("Llueve");
 			//info.setDia(dia);
-			info = "Lluvia";
-			
+			//info = "Lluvia";
+			System.out.print("Lluvia");
+			return lluvia.hayLluvia(posP1, posP2, posP3, POS_SOL);
 		} 
 		
 		if(optimo.esOptimo(posP1, posP2, posP3))
 		{
 			//info.setTipoClima("Optimo");
 			//info.setDia(dia);
-			info = "Optimo";
+			//info = "Optimo";
+			System.out.print("Optimo");
+			return optimo.esOptimo(posP1, posP2, posP3);
 		}
 		
 		if(sequia.haySequia(posP1, posP2, posP3, POS_SOL)) {
 			//info.setTipoClima("Sequia");
 			//info.setDia(dia);
-			info = "Sequia";
+			//info = "Sequia";
+			System.out.print("Sequia");
+			return sequia.haySequia(posP1, posP2, posP3, POS_SOL);
 		}
 		System.out.print("dia: " + info);
-		return info;
+		
+		return false;
 		
 	}
 	

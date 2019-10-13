@@ -16,6 +16,9 @@ public class Clima {
 	}
 	
 	*/
+	public Clima() {
+		
+	}
 	
 	public boolean estanAlineados(Point2D posP1, Point2D posP2, Point2D posP3) {
 		double elevacion = posP2.getX() - posP1.getX();
@@ -27,7 +30,7 @@ public class Clima {
 		
 		//ec pendiente queda: Y = pendiente*x + independiente		
 		double pendiente3 = (posP3.getX() - posP2.getX()) /  (posP3.getY() - posP2.getY());
-		System.out.print("Pendiente: " + pendiente + " " + "pendiente3: " + pendiente3);
+		//System.out.print("Pendiente: " + pendiente + " " + "pendiente3: " + pendiente3);
 		
 		boolean linea = (((posP1.getX() == posP2.getX()) && (posP1.getX() == posP3.getX())) ||
 				((posP1.getY() == posP2.getY()) && (posP1.getY() == posP3.getY()))) ;

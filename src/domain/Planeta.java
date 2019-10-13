@@ -33,8 +33,7 @@ public class Planeta {
 	private int velocidadAngular; //positiva o negativa, dependiendo del sentido que tenga
 	private double radio;
 	private long angulo;
-	private double anguloRadian;
-	private Point2D posicionPlaneta;
+	private Point2D posicionPlaneta = new Double(0, 0);
 	private int sentido;
 	
 	//constructor planeta
@@ -52,17 +51,21 @@ public class Planeta {
 
 	//calculo angulo
 	public long calculoAngulosPorDia(int dia) {
-		this.angulo = (this.velocidadAngular*this.sentido * dia) % 360; //(1 vuelta = 360 grados )
+		long angulo = (this.velocidadAngular*this.sentido * dia); /// 360; //(1 vuelta = 360 grados )
 		//como velocidad anguluar puede ser negativa
-		if(this.velocidadAngular < 0) {
-			this.angulo = 360 + this.angulo;
+		if((angulo) < 0) {
+			this.angulo = 360 + angulo;
 		}
-		
+		this.angulo = angulo;
+		System.out.println("Angulo por día: " + this.angulo);
 		return this.angulo;
 	}
 		
 	public double calculoAnguloRadian(long angulo) {
-		return this.anguloRadian = Math.toRadians(angulo);
+		double anguloRadian = Math.toRadians(angulo);
+		System.out.println(" Angulo en radianes(round) día: " + Math.round(anguloRadian));
+		return anguloRadian;
+		
 	}
 		
 	public Point2D posicionPorDia(int dias) {
@@ -70,7 +73,10 @@ public class Planeta {
 		double radianes = this.calculoAnguloRadian(angulo);
 		double posX = this.radio *  Math.cos(radianes);
 		double posY = this.radio *  Math.sin(radianes);
-		this.posicionPlaneta.setLocation(posX, posY);
+		System.out.println("Pos X: " + Math.round(posX));
+		System.out.println("Pos Y: " + Math.round(posY));
+		this.posicionPlaneta.setLocation(Math.round(posX), Math.round(posY));
+		System.out.println("Posición planeta: " + this.posicionPlaneta);
 		 return this.posicionPlaneta;
 	}
 		

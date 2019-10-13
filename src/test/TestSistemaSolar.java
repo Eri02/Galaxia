@@ -26,9 +26,9 @@ class TestSistemaSolar extends TestCase {
 	}
 	
 	@Test
-	public void testOptimo() {
+	public void testGetClima() {
 		setUp();
-		assertEquals("Sequia",sist.getClimaPorDia(2));
+		assertEquals(true,sist.getClimaPorDia(566));
 	}
 
 }
