@@ -29,7 +29,6 @@ public class Planeta {
  * 
  * anguloDegree = (velocidad * dias) / 360
  * */
-	private int id;
 	private String nombrePlaneta;
 	private int velocidadAngular; //positiva o negativa, dependiendo del sentido que tenga
 	private double radio;
@@ -88,9 +87,7 @@ public class Planeta {
 	}
 	
 	//setter	
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public void setNombre(String nombre) {
 		this.nombrePlaneta = nombre;
 	}

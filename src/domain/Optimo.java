@@ -8,8 +8,8 @@ public class Optimo extends Clima{
 		super();
 	}
 	
-	public boolean esOptimo(Point2D posP1, Point2D posP2, Point2D posP3,int dia) {
-		return estanAlineados(posP1, posP2, posP3, dia);
+	public boolean esOptimo(Point2D posP1, Point2D posP2, Point2D posP3) {
+		return estanAlineados(posP1, posP2, posP3);
 	}
 
 	

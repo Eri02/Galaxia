@@ -8,16 +8,20 @@ public class Lluvia extends Clima{
 		super();
 	}
 	
+	public boolean hayLluvia(Point2D p1, Point2D p2, Point2D p3, Point2D sol) {
+		return solPerteneceAlTriangulo(p1, p2, p3, sol);
+	}
+	
 	public boolean solPerteneceAlTriangulo(Point2D p1, Point2D p2, Point2D p3, Point2D sol) {
-		double l1 = sistSolar.distanciaEntreDosPuntos(p1, p2);
-		double l2 = sistSolar.distanciaEntreDosPuntos(p2, p3);
-		double l3 = sistSolar.distanciaEntreDosPuntos(p3, p1);
+		double l1 = this.distanciaEntreDosPuntos(p1, p2);
+		double l2 = this.distanciaEntreDosPuntos(p2, p3);
+		double l3 = this.distanciaEntreDosPuntos(p3, p1);
 		
 		double area = this.areaDeTriangulo(l1, l2, l3);
 		
-		double pb = sistSolar.distanciaEntreDosPuntos(sol, p2);
-		double pc = sistSolar.distanciaEntreDosPuntos(sol, p3);
-		double pa = sistSolar.distanciaEntreDosPuntos(sol, p1);
+		double pb = this.distanciaEntreDosPuntos(sol, p2);
+		double pc = this.distanciaEntreDosPuntos(sol, p3);
+		double pa = this.distanciaEntreDosPuntos(sol, p1);
 		
 		double a = (pb * pc)/(2 * area);
 		double b = (pc * pa)/(2 * area);
@@ -27,18 +31,21 @@ public class Lluvia extends Clima{
 	
 	//Fórmula de Herón
 	public double areaDeTriangulo(double a, double b, double c) {
-		double s = (sistSolar.perimetro(a, b, c))/2;
+		double s = (this.perimetro(a, b, c))/2; //revisar perimetro
 		double area = Math.sqrt(s*(s-a)*(s-b)*(s-c));
 		return area;
 	}
 
 	public boolean formanUnTriangulo(Point2D p1, Point2D p2, Point2D p3){
-		double a = sistSolar.distanciaEntreDosPuntos(p1, p2);
-		double b = sistSolar.distanciaEntreDosPuntos(p2, p3);
-		double c = sistSolar.distanciaEntreDosPuntos(p3, p1);
+		double a = this.distanciaEntreDosPuntos(p1, p2);
+		double b = this.distanciaEntreDosPuntos(p2, p3);
+		double c = this.distanciaEntreDosPuntos(p3, p1);
 
 		return (a >=1 && b >= 1 && c >= 1); //revisar
 	}
+	
+	
+
 	
 	
 }

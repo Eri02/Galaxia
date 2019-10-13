@@ -18,6 +18,7 @@ import javax.ws.rs.core.Response.Status;
 
 import domain.InfoClima;
 import domain.Planeta;
+import domain.SistemaSolar;
 
 @Path("/planetas")
 @Consumes(value = MediaType.APPLICATION_JSON)
@@ -39,36 +40,44 @@ import domain.Planeta;
 
 public class GalaxiaService {
 
-	public InfoClima clima;
+	//public SistemaSolar sistSolar;
 	private static final List<Planeta> planetas = new ArrayList<>();
 	static {
 		planetas.add(new Planeta("Ferengi", 1,500,-1));
 		planetas.add(new Planeta("Betasoide", 3,2000, -1));
 		planetas.add(new Planeta("Vulcano", 5,1000, 1));
 	}
+
+	Planeta planeta1 =  new Planeta("Ferengi", 1,500,-1);
+	Planeta planeta2 =  new Planeta("Betasoide", 3,2000, -1);
+	Planeta planeta3 =  new Planeta("Vulcano", 5,1000, 1);
+	
+	SistemaSolar sistSolar = new SistemaSolar(planeta1, planeta2, planeta3);
 	
 	@GET
 	public Response getAllPlanetas() {
 		return Response.ok(this.planetas, MediaType.APPLICATION_JSON).build();
 	}
 	
-	@Path("{dias}")
+	/*@Path("{dias}")
 	@GET 
 	public Response getPosicionDePlanetasPorDias(@PathParam("dias") int dias) {
 		Planeta planeta1 = new Planeta("FerengiCopy", 1,500,-1);
 		System.out.println("El paneta está en la posición " + planeta1.posicionPorDia(dias) + "a los " + dias + "día(s)");
 		return Response.ok(planeta1.posicionPorDia(dias)).build();
 	}
+	*/
 	
-	
-	@Path("{anios}")
+	@Path("{dia}")
 	@GET
-	public Response getClimaPorAnios(@PathParam("anios") int anios) {
-		int diasEnTotal = anios * 365;
-		for (int dia = 0; dia <= diasEnTotal; dia++) {
-			clima.calcularClimaPorDia(dia);
-		}	
-		
-		return Response.ok().build();
+	public Response getClimaPorAnios(@PathParam("dia") int dia) {
+		//int diasEnTotal = anios * 365;
+		//for (int dia = 0; dia <= diasEnTotal; dia++) {
+			//InfoClima info = new InfoClima();
+			//	String info = sistSolar.getClimaPorDia(dia);			
+		//}	
+		sistSolar.getPlaneta1();
+			System.out.println("Clima: " + sistSolar.getPlaneta1());
+		return Response.ok(sistSolar.getPlaneta1(), MediaType.APPLICATION_JSON).build();
 	}
 }

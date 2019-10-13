@@ -17,7 +17,7 @@ public class Clima {
 	
 	*/
 	
-	public boolean estanAlineados(Point2D posP1, Point2D posP2, Point2D posP3,int dia) {
+	public boolean estanAlineados(Point2D posP1, Point2D posP2, Point2D posP3) {
 		double elevacion = posP2.getX() - posP1.getX();
 		double avance = posP2.getY() - posP1.getY();
 		
@@ -29,5 +29,17 @@ public class Clima {
 		double pendiente3 = posP3.getX() - posP2.getX() /  posP3.getY() - posP2.getY();
 		
 		return (pendiente == pendiente3);
+	}
+	
+	public double distanciaEntreDosPuntos(Point2D p1, Point2D p2) {
+		//d= raiz[(x2-x1)2+(y2-y1)2]
+		double x = Math.abs(p2.getX() - p1.getX());
+		double y = Math.abs(p2.getY() - p1.getY());
+		double d = Math.sqrt((Math.pow(x, 2) + (Math.pow(y, 2))));		
+		return d;
+	}
+	
+	public double perimetro(double a, double b, double c) {
+		return a + b + c;
 	}
 }

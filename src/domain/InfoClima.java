@@ -7,11 +7,29 @@ public class InfoClima {
 	private String tipoClima;
 	private int dia;
 	
-	public SistemaSolar sistSolar = new SistemaSolar();
-	
-	public void calcularClimaPorDia(int dia) {
-		// TODO Auto-generated method stub
+	public InfoClima() {
 		
+	} 
+	
+	public InfoClima(String tipo, int dia) {
+		this.tipoClima = tipo;
+		this.dia = dia;
+	}
+	
+	public void setTipoClima(String tipo) {
+		this.tipoClima = tipo;
+	}
+	
+	public void setDia(int dia) {
+		this.dia = dia;
+	}
+	
+	public String getTipoClima() {
+		return this.tipoClima;
+	}
+	
+	public int getDia() {
+		return this.dia;
 	}
 	
 	
