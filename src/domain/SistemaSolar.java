@@ -64,9 +64,6 @@ public class SistemaSolar {
 		return  sinInfo;	
 	}
 	
-	public Planeta getPlaneta1() {
-		return this.planeta1;
-	}
 	
 	public void getPeriodosOptimos(int dia) {
 		//clima.esClimaOptimo(planeta1, planeta2, planeta3, dia);
@@ -81,10 +78,6 @@ public class SistemaSolar {
 	}
 	
 	public void picoMaximoDeLluvia() {
-		
-	}
-	
-	public void getPeriodosNoLluviosos(int dia) {
 		
 	}
 		
