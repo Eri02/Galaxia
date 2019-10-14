@@ -108,6 +108,36 @@ public class SistemaSolar {
 
 		return periodos;
 	}
+	
+	public InfoClima esPicoMaximoLluvia() {
+		double maxPerimetro = 0;
+		int diaMax= 0;
+		
+		int diasEnTotal = 10 * 365;
+
+		for (int dia = 0; dia <= diasEnTotal; dia++) {
+			Point2D posP1 = planeta1.posicionPorDia(dia);
+			Point2D posP2 = planeta2.posicionPorDia(dia);
+			Point2D posP3 = planeta3.posicionPorDia(dia);
+			
+			if(lluvia.hayLluvia(posP1, posP2, posP3, POS_SOL)) {
+				double a = lluvia.distanciaEntreDosPuntos(posP1, posP2);
+				double b = lluvia.distanciaEntreDosPuntos(posP2, posP3);
+				double c = lluvia.distanciaEntreDosPuntos(posP1, posP3);
+				
+				double perimetroActual = lluvia.perimetro(a, b, c);
+				
+				if(maxPerimetro < perimetroActual) {				
+					maxPerimetro = perimetroActual;
+					diaMax = dia;
+				}
+			}
+		}
+		
+		InfoClima infoLluviaMax = new InfoClima(ClimaEnum.LLUVIAMAX.getTipo(), diaMax);
+		return infoLluviaMax;
+		
+	}
 		
 
 }

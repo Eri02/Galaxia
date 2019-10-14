@@ -52,4 +52,12 @@ public class GalaxiaService {
 		return Response.ok(clima, MediaType.APPLICATION_JSON).build();
 	}
 	
+	@GET
+	@Path("/pico")
+	public Response getDiaPicoLluvia() {
+		InfoClima info = new InfoClima();
+		info = sistSolar.esPicoMaximoLluvia();
+		return Response.ok(info, MediaType.APPLICATION_JSON).build();
+	}
+	
 }
