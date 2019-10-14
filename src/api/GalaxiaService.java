@@ -8,6 +8,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -27,7 +28,7 @@ public class GalaxiaService {
 	
 	SistemaSolar sistSolar = new SistemaSolar(planeta1, planeta2, planeta3);
 
-	@Path("/clima")
+	@Path("/prediccion")
 	@GET
 	public Response getClimaPorAnios() {
 		List<InfoClima> climas = new ArrayList<InfoClima>();
@@ -43,11 +44,11 @@ public class GalaxiaService {
 		return Response.ok(periodos, MediaType.APPLICATION_JSON).build();
 	}
 	
-	@Path("/clima/{dia}")
 	@GET
-	public Response getClimaPorDia(@PathParam("dia") int day) {
+	@Path("/clima")
+	public Response getClimaPorDia(@QueryParam("dia") int dia) {
 		InfoClima clima = new InfoClima();
-		clima = sistSolar.getClimaPorDia(day);
+		clima = sistSolar.getClimaPorDia(dia);
 		return Response.ok(clima, MediaType.APPLICATION_JSON).build();
 	}
 	
