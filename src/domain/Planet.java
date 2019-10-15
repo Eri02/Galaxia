@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PLANET")
+@Table(name = "Planet")
 public class Planet implements Serializable{
 
 	private static final long serialVersionUID = 1;
@@ -30,8 +30,8 @@ public class Planet implements Serializable{
 		
 	}
 	
-	public Planet(String nombre, int velocidad, long radio) {
-
+	public Planet(long id,String nombre, int velocidad, long radio) {
+		this.id = id;
 		this.nombre = nombre;
 		this.velocidad = velocidad;
 		this.radio = radio;
