@@ -29,4 +29,9 @@ public class InfoPeriodo {
 	public int getPeriodo() {
 		return this.periodo;
 	}
+	
+	@Override
+	public String toString() {
+		return "InfoPeriodo [clima=" + clima + ", periodo=" + periodo + "]";
+	}
 }

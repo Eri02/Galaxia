@@ -30,4 +30,8 @@ public class InfoClima {
 		return this.dia;
 	}
 		
+	@Override
+	public String toString() {
+		return "InfoClima [clima=" + clima + ", dia=" + dia + "]";
+	}
 }

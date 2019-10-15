@@ -16,9 +16,9 @@ public class SistemaSolar {
 	private Planeta planeta2 = new Planeta();
 	private Planeta planeta3 = new Planeta();
 	
-	public Lluvia lluvia = new Lluvia();
-	public Optimo optimo = new Optimo();
-	public Sequia sequia = new Sequia();
+	public CalculoLluvia lluvia = new CalculoLluvia();
+	public CalculoOptimo optimo = new CalculoOptimo();
+	public CalculoSequia sequia = new CalculoSequia();
 		
 	public SistemaSolar(Planeta p1, Planeta p2, Planeta p3) {
 		this.planeta1 = p1;

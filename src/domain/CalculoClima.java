@@ -2,11 +2,11 @@ package domain;
 
 import java.awt.geom.Point2D;
 
-public class Clima {
+public class CalculoClima {
 
 	public SistemaSolar sistSolar;
 	
-	public Clima() {
+	public CalculoClima() {
 		
 	}
 	

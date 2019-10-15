@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 
 import org.junit.jupiter.api.Test;
 
-import domain.Planet;
+import domain.Entidades.Planet;
 
 public class TestPlanetPersistence {
 

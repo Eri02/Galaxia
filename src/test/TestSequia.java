@@ -7,13 +7,13 @@ import java.awt.geom.Point2D.Double;
 
 import org.junit.jupiter.api.Test;
 
-import domain.Optimo;
-import domain.Sequia;
+import domain.CalculoOptimo;
+import domain.CalculoSequia;
 import junit.framework.TestCase;
 
 class TestSequia extends TestCase {
 
-	private Sequia sequia = new Sequia();
+	private CalculoSequia sequia = new CalculoSequia();
 	Point2D p1 = new Point2D.Double(0.0,2.0);
 	Point2D p2 = new Point2D.Double(0.0,4.0);
 	Point2D p3 = new Point2D.Double(0.0,6.0); 

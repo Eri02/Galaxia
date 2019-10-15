@@ -2,9 +2,9 @@ package domain;
 
 import java.awt.geom.Point2D;
 
-public class Lluvia extends Clima{
+public class CalculoLluvia extends CalculoClima{
 
-	public Lluvia() {
+	public CalculoLluvia() {
 		super();
 	}
 	

@@ -2,9 +2,9 @@ package domain;
 
 import java.awt.geom.Point2D;
 
-public class Sequia extends Clima{
+public class CalculoSequia extends CalculoClima{
 
-	public Sequia() {
+	public CalculoSequia() {
 		super();
 	}
 	public boolean haySequia(Point2D posP1, Point2D posP2, Point2D posP3, Point2D sol) {

@@ -6,12 +6,12 @@ import java.awt.geom.Point2D;
 
 import org.junit.jupiter.api.Test;
 
-import domain.Clima;
+import domain.CalculoClima;
 import junit.framework.TestCase;
 
 class TestClima extends TestCase{
 
-	private Clima clima = new Clima();
+	private CalculoClima clima = new CalculoClima();
 	Point2D p1 = new Point2D.Double(4.0,2.0);
 	Point2D p2 = new Point2D.Double(4.0,4.0);
 	Point2D p3 = new Point2D.Double(4.0,6.0);

@@ -7,7 +7,7 @@ import java.awt.geom.Point2D.Double;
 
 import org.junit.jupiter.api.Test;
 
-import domain.Lluvia;
+import domain.CalculoLluvia;
 
 class TestLluvia {
 	
@@ -16,7 +16,7 @@ class TestLluvia {
 	Point2D p3 = new Point2D.Double(1.0,3.0);
 	Point2D sol = new Double(0, 0);
 	
-	Lluvia lluvia = new Lluvia();
+	CalculoLluvia lluvia = new CalculoLluvia();
 
 	@Test
 	void testLlueve() {
